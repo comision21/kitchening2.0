@@ -1,5 +1,7 @@
 @import './normalize.css';
 @import './general.css';
 @import './home.css';
+@import './carousel_w3school.css';
+@import './carousel_swiper.css';
 
 /* TODO: sumar otras hojas de estilos */

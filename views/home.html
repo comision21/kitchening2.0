@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kitchening</title>
+    <!-- css boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- css swipper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- css custom -->
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body class="home">
@@ -31,7 +37,15 @@
     </header>
     <main class="home__main">
         <div class="home__main__section--banner">
-            <img src="/img/img-banner.jpg" alt="banner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/img/banner/image1.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner/image2.jpeg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner/image3.jpeg" alt=""></div>
+                    <div class="swiper-slide"><img src="/img/banner/image5.webp" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
         <div class="home__main__section--products">
             <article class="home__main__section__article">
@@ -101,6 +115,19 @@
                 <a class="home__main__section__article--more" href="">ver más</a>
             </article>
         </div>
+        <section class="carousel_ensaladas">
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="/img/products/ensalada1.webp" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/products/ensalada2.webp" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/products/ensalada3.webp" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/products/ensalada4.webp" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/products/ensalada5.webp" alt=""></div>
+                  <div class="swiper-slide"><img src="/img/products/ensalada6.webp" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+        </section>
 
     </main>
     <footer class="home__footer">
@@ -115,6 +142,18 @@
             </ul>
         </nav>
     </footer>
+
+    <!-- js boostrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- js swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- js custom -->
+    <!-- <script src="/js/carousel_w3school.js"></script> -->
+    <script src="/js/carousel_swiper.js"></script>
+    <script src="/js/carousel_swiper2.js"></script>
+
 </body>
 
 </html>
