@@ -1,41 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    <%- include('partials/head') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitchening | Detalle Producto</title>
-    <!-- css boostrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!-- css animate -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- css custom -->
-    <link rel="stylesheet" href="/css/styles.css">
-    <script src="https://kit.fontawesome.com/3f21023fe6.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-</head>
 
 <body class="detalle">
-    <header class="home__header">
-        <div class="home__header--box-logo">
-            <img class="home__header--logo" src="/img/logo.jpg" alt="logo_kitchening">
-        </div>
-        <a href="" class="home__header--bars"><i class="fa fa-bars fa-lg"></i></a>
-        <nav class="home__header__nav--menu">
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/quienes">quienes</a></li>
-                <li><a href="/servicios">servicios</a></li>
-                <li><a href="/porfolio">porfolio</a></li>
-                <li><a href="/sucursales">sucursales</a></li>
-                <li><a href="/contacto">contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- include('partials/header') %>
+
     <main class="detalle__main">
         <div class="row">
             <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
@@ -69,6 +39,9 @@
             </div>
         </div>
     </main>
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+
 </body>
 
 </html>
