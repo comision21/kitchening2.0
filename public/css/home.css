@@ -28,6 +28,7 @@
   text-transform: uppercase;
   margin-bottom: 1px;
   padding: 8px 0;
+  
 }
 
 .home__header__nav--menu ul li:last-child {
@@ -35,6 +36,7 @@
 }
 
 /* MAIN */
+
 .home__main__section--banner {
   display: none;
 }
@@ -79,6 +81,14 @@
   margin: 20px 0;
   background-color: var(--colorGrisOscuro);
 }
+
+.home__main--whatsapp {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
 
 /* FOOTER */
 
@@ -165,6 +175,13 @@
     width: 32%;
   }
 
+  
+.home__main--whatsapp {
+
+  right: 100px;
+}
+
+
   /* FOOTER */
 
 .home__footer {
@@ -188,4 +205,15 @@
     border-right: none;
 }
 
+}
+
+@media (min-width: 1440px) {
+
+  .home__main--whatsapp {
+   
+    right: 150px;
+   
+  }
+  
+  
 }
