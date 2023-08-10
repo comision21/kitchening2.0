@@ -1,8 +1,5 @@
 module.exports = {
-    detail : (req,res) => {
-        return res.render('productDetail')
-    },
-    add : (req,res) => {
-        return res.render('productAdd')
-    }
+    detail : require('./products/detail'),
+    add :require('./products/add'),
+    create : require('./products/create'),
 }

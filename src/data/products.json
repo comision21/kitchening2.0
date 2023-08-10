@@ -1,0 +1,11 @@
+[
+   {
+      "id": "bdd7772c-c0b1-4937-b1f2-5ffea405adc8",
+      "title": "Fideos a la bolognesa",
+      "category": "Pastas",
+      "price": 100,
+      "discount": 5,
+      "description": "lorem ipsum dolor amet sit",
+      "image": null
+   }
+]

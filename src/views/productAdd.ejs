@@ -14,7 +14,7 @@
                                 <h4 class="card-title">Agregar producto</h4>
                             </div>
                             <div class="card-body">
-                                <form action="" class="row">
+                                <form action="" method="POST" class="row">
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="name" class="form-label">Título</label>
                                         <input type="text" class="form-control" id="name"
@@ -23,10 +23,10 @@
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="category" class="form-label">Categoría</label>
                                         <select class="form-select" aria-label="Default select example" name="category" id="category">
-                                            <option selected hidden>Seleccione...</option>
-                                            <option value="1">Carnes</option>
-                                            <option value="2">Mariscos</option>
-                                            <option value="3">Ensaladas</option>
+                                            <option value="" selected hidden>Seleccione...</option>
+                                            <% categories.forEach(category => { %>
+                                             <option value="<%= category.name %>"><%= category.name %></option>
+                                            <% }) %>
                                           </select>
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
