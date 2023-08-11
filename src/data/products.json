@@ -1,11 +1,72 @@
 [
    {
-      "id": "bdd7772c-c0b1-4937-b1f2-5ffea405adc8",
-      "title": "Fideos a la bolognesa",
+      "id": "ab1667a5-2f46-4194-9bbd-f22f6adfe5be",
+      "title": "Tallarines a la bolognesa",
       "category": "Pastas",
       "price": 100,
-      "discount": 5,
-      "description": "lorem ipsum dolor amet sit",
-      "image": null
+      "discount": 10,
+      "description": "Tallarines con huevo",
+      "image": null,
+      "createAt": "2023-08-11T14:25:41.258Z"
+   },
+   {
+      "id": "ea373486-17d4-4976-8ddb-fdedd23ff25d",
+      "title": "Carne al horno con papas",
+      "category": "Carnes",
+      "price": 200,
+      "discount": 10,
+      "description": "Carne argentina de primera calidad",
+      "image": null,
+      "createAt": "2023-08-11T14:27:11.542Z"
+   },
+   {
+      "id": "c162c019-b5ff-4d22-a19b-9d03940dbb58",
+      "title": "Milanesa con puré",
+      "category": "Carnes",
+      "price": 1200,
+      "discount": 10,
+      "description": "Milanesa de ternera",
+      "image": null,
+      "createAt": "2023-08-11T14:27:57.641Z"
+   },
+   {
+      "id": "b55917b3-430f-441d-a0f5-01badba27d08",
+      "title": "Salchipapas",
+      "category": "Carnes",
+      "price": 50,
+      "discount": 0,
+      "description": "Embutidos",
+      "image": null,
+      "createAt": "2023-08-11T14:28:25.043Z"
+   },
+   {
+      "id": "86c9cf58-9f39-49df-8f45-0f673b5b9356",
+      "title": "Tabla de fiambres",
+      "category": "Carnes",
+      "price": 100,
+      "discount": 20,
+      "description": "Fiambres y quesos!!",
+      "image": null,
+      "createAt": "2023-08-11T14:28:48.769Z"
+   },
+   {
+      "id": "a714e62f-e84a-45b3-b45c-3f5f490b5f0a",
+      "title": "Guiso de lentejas",
+      "category": "Pastas",
+      "price": 200,
+      "discount": 10,
+      "description": "Alto guiso de lentejas con panceta",
+      "image": null,
+      "createAt": "2023-08-11T14:29:44.597Z"
+   },
+   {
+      "id": "ec35adbc-b04a-4f7f-8f2a-7b489a585993",
+      "title": "Guiso de fideos",
+      "category": "Pastas",
+      "price": 80,
+      "discount": 20,
+      "description": "Guiso de fideos \"moñitos\"",
+      "image": null,
+      "createAt": "2023-08-11T14:30:18.678Z"
    }
 ]

@@ -1,4 +1,3 @@
-const { v4: uuidv4 } = require('uuid');
 const Product = require('../../data/Product');
 const { readJSON, writeJSON } = require('../../data');
 
