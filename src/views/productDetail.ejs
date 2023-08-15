@@ -15,11 +15,11 @@
                             <div class="d-flex flex-column gap-1">
                                 <img id="main-image" src="/img/img-pdto-1.jpg" class="img-fluid rounded-top animate__animated animate__fadeInDown" alt="...">
                                 <div class="d-flex justify-content-between">
-                                    <img src="img/img-pdto-1.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-1s"
+                                    <img src="/img/img-pdto-1.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-1s"
                                         onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-1.jpg')">
-                                    <img src="img/img-pdto-2.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-2s"
+                                    <img src="/img/img-pdto-2.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-2s"
                                         onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-2.jpg')">
-                                    <img src="img/img-pdto-3.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-3s"
+                                    <img src="/img/img-pdto-3.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-3s"
                                         onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-3.jpg')">
                                 </div>
                             </div>
@@ -27,10 +27,9 @@
                         </div>
                         <div class="col-12 col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
+                                <h5 class="card-title"><%= title %></h5>
+                                <p class="card-text"><%= description %></p>
+                                <p class="card-text"><small class="text-body-secondary">$<%= price %></small>
                                 </p>
                             </div>
                         </div>

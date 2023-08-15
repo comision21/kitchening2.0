@@ -29,13 +29,22 @@
                                             <% }) %>
                                           </select>
                                     </div>
-                                    <div class="col-12 col-md-6 mb-3">
+                                    <div class="col-12 col-md-4 mb-3">
                                         <label for="price" class="form-label">Precio</label>
                                         <input type="number" class="form-control" id="price" name="price">
                                     </div>
-                                    <div class="col-12 col-md-6 mb-3">
+                                    <div class="col-12 col-md-4 mb-3">
                                         <label for="discount" class="form-label">Descuento</label>
                                         <input type="number" class="form-control" id="discount" name="discount">
+                                    </div>
+                                    <div class="col-12 col-md-4 mb-3">
+                                        <label for="section" class="form-label">Sección</label>
+                                        <select class="form-select" aria-label="Default select example" name="section" id="section">
+                                            <option value="" selected hidden>Seleccione...</option>
+                                            <% sections.forEach(section => { %>
+                                             <option value="<%= section %>"><%= section === 'free' ? 'Gratis' : section === 'sale' ? 'Oferta' : 'Nuevo' %></option>
+                                            <% }) %>
+                                          </select>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label for="description" class="form-label">Descripción</label>

@@ -2,11 +2,12 @@
    {
       "id": "ab1667a5-2f46-4194-9bbd-f22f6adfe5be",
       "title": "Tallarines a la bolognesa",
-      "category": "Pastas",
-      "price": 100,
-      "discount": 10,
+      "category": "Pastas\r\n                                                        ",
+      "price": 1000,
+      "discount": 30,
       "description": "Tallarines con huevo",
       "image": null,
+      "section": "sale",
       "createAt": "2023-08-11T14:25:41.258Z"
    },
    {
@@ -17,6 +18,7 @@
       "discount": 10,
       "description": "Carne argentina de primera calidad",
       "image": null,
+      "section": "free",
       "createAt": "2023-08-11T14:27:11.542Z"
    },
    {
@@ -27,26 +29,29 @@
       "discount": 10,
       "description": "Milanesa de ternera",
       "image": null,
+      "section": "free",
       "createAt": "2023-08-11T14:27:57.641Z"
    },
    {
       "id": "b55917b3-430f-441d-a0f5-01badba27d08",
       "title": "Salchipapas",
-      "category": "Carnes",
+      "category": "Carnes\r\n                                                        ",
       "price": 50,
       "discount": 0,
       "description": "Embutidos",
       "image": null,
+      "section": "new",
       "createAt": "2023-08-11T14:28:25.043Z"
    },
    {
       "id": "86c9cf58-9f39-49df-8f45-0f673b5b9356",
       "title": "Tabla de fiambres",
-      "category": "Carnes",
+      "category": "Carnes\r\n                                                        ",
       "price": 100,
       "discount": 20,
       "description": "Fiambres y quesos!!",
       "image": null,
+      "section": "new",
       "createAt": "2023-08-11T14:28:48.769Z"
    },
    {
@@ -57,6 +62,7 @@
       "discount": 10,
       "description": "Alto guiso de lentejas con panceta",
       "image": null,
+      "section": "free",
       "createAt": "2023-08-11T14:29:44.597Z"
    },
    {
@@ -67,6 +73,29 @@
       "discount": 20,
       "description": "Guiso de fideos \"moñitos\"",
       "image": null,
+      "section": "free",
       "createAt": "2023-08-11T14:30:18.678Z"
+   },
+   {
+      "id": "8a559fb5-af81-48f4-871e-1336c949e152",
+      "title": "Filet de merluza",
+      "category": "Pescados y Mariscos\r\n                                                        ",
+      "price": 1000,
+      "discount": 10,
+      "description": "Lorem ipsum",
+      "image": null,
+      "section": "free",
+      "createAt": "2023-08-14T14:42:14.394Z"
+   },
+   {
+      "id": "fd30195f-61a5-4633-921d-289fc6bb72df",
+      "title": "Sandwich de vacio",
+      "category": "Carnes",
+      "price": 100,
+      "discount": 10,
+      "description": "Rico y barato",
+      "image": null,
+      "section": "sale",
+      "createAt": "2023-08-14T15:29:21.440Z"
    }
 ]

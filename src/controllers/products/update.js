@@ -1,7 +1,7 @@
 const { readJSON, writeJSON } = require("../../data");
 
 module.exports = (req,res) => {
-    const {title, price, category, discount, description} = req.body;
+    const {title, price, category, discount, description, section} = req.body;
     const products = readJSON('products.json');
 
     const productsModify = products.map(product => {
@@ -11,6 +11,7 @@ module.exports = (req,res) => {
             product.price = +price
             product.discount = +discount
             product.category = category
+            product.section = section
         }
             
         return product

@@ -22,23 +22,40 @@
                                     </div>
                                     <div class="col-12 col-md-6 mb-3">
                                         <label for="category" class="form-label">Categoría</label>
-                                        <select class="form-select" aria-label="Default select example" name="category" id="category">
-                                            <% categories.forEach(item => { %>
-                                             <option <%= item.name === category && 'selected' %> value="<%= item.name %>"><%= item.name %></option>
-                                            <% }) %>
-                                          </select>
+                                        <select class="form-select" aria-label="Default select example" name="category"
+                                            id="category">
+                                            <% categories.forEach(item=> { %>
+                                                <option <%=item.name===category && 'selected' %> value="<%= item.name %>
+                                                        "><%= item.name %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
                                     </div>
-                                    <div class="col-12 col-md-6 mb-3">
+                                    <div class="col-12 col-md-4 mb-3">
                                         <label for="price" class="form-label">Precio</label>
-                                        <input type="number" class="form-control" id="price" name="price" value="<%= price %>">
+                                        <input type="number" class="form-control" id="price" name="price"
+                                            value="<%= price %>">
                                     </div>
-                                    <div class="col-12 col-md-6 mb-3">
+                                    <div class="col-12 col-md-4 mb-3">
                                         <label for="discount" class="form-label">Descuento</label>
-                                        <input type="number" class="form-control" id="discount" name="discount" value="<%= discount %>">
+                                        <input type="number" class="form-control" id="discount" name="discount"
+                                            value="<%= discount %>">
+                                    </div>
+                                    <div class="col-12 col-md-4 mb-3">
+                                        <label for="section" class="form-label">Sección</label>
+                                        <select class="form-select" aria-label="Default select example" name="section"
+                                            id="section">
+                                            <% sections.forEach(item=> { %>
+                                                <option value="<%= item %>" <%=section===item && 'selected' %>><%=
+                                                        item==='free' ? 'Gratis' : item==='sale' ? 'Oferta' : 'Nuevo' %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <label for="description" class="form-label">Descripción</label>
-                                       <textarea name="description" id="description" class="form-control" style="resize: none;"><%= description %></textarea>
+                                        <textarea name="description" id="description" class="form-control"
+                                            style="resize: none;"><%= description %></textarea>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <img src="/img/<%= image || 'img-pdto-1.jpg' %>" alt="">
@@ -46,7 +63,7 @@
                                     <div class="col-12 col-md-6 d-flex align-items-end justify-content-end gap-2 mb-3">
                                         <label for="image" class="btn btn-secondary">Agregar imagen</label>
                                         <input type="file" name="image" id="image" hidden>
-                                      <button class="btn btn-dark">Guardar cambios</button>
+                                        <button class="btn btn-dark">Guardar cambios</button>
                                     </div>
                                 </form>
                             </div>

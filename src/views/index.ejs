@@ -19,72 +19,21 @@
             </div>
         </div>
         <div class="home__main__section--products">
-            <article class="home__main__section__article" data-aos="zoom-in-right" data-aos-duration="500">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-1.jpg" alt="producto1">
-                    <img class="home__main__section__article--sticker" src="/img/img-nuevo.png" alt="nuevo">
-                    <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="/products/detail/1">ver más</a>
-            </article>
-            <article class="home__main__section__article" data-aos="zoom-in-up" data-aos-duration="500">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-2.jpg" alt="producto2">
-                    <img class="home__main__section__article--sticker" src="/img/img-gratis.png" alt="gratis">
-                    <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="">ver más</a>
-            </article>
-            <article class="home__main__section__article" data-aos="zoom-in-left" data-aos-duration="500">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-3.jpg" alt="producto3">
-                    <img class="home__main__section__article--sticker" src="/img/img-descuento.png" alt="descuento">
-                    <a href="" class="home__main__section__article--zoom">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="">ver más</a>
-            </article>
-            <article class="home__main__section__article" data-aos="zoom-in-right">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-1.jpg" alt="producto1">
-                    <img class="home__main__section__article--sticker" src="/img/img-nuevo.png" alt="nuevo">
-                    <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="">ver más</a>
-            </article>
-            <article class="home__main__section__article" data-aos="zoom-in-down">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-2.jpg" alt="producto2">
-                    <img class="home__main__section__article--sticker" src="/img/img-gratis.png" alt="gratis">
-                    <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="">ver más</a>
-            </article>
-            <article class="home__main__section__article" data-aos="zoom-in-left">
-                <div class="home__main__section__article--box">
-                    <img class="home__main__section__article--image" src="/img/img-pdto-3.jpg" alt="producto3">
-                    <img class="home__main__section__article--sticker" src="/img/img-descuento.png" alt="descuento">
-                    <a href="" class="home__main__section__article--zoom">AMPLIAR FOTO</a>
-                </div>
-                <h4 class="home__main__section__article--title">Lorem, ipsum dolor.</h4>
-                <p class="home__main__section__article--description">Lorem ipsum, dolor sit amet consectetur adipisicing
-                    elit. Sunt, amet quas distinctio velit dolorem inventore dolor.</p>
-                <a class="home__main__section__article--more" href="">ver más</a>
-            </article>
+
+            <% products.forEach(({title, description, id, image,section}) => { %>
+                <article class="home__main__section__article" data-aos="zoom-in-right" data-aos-duration="500">
+                    <div class="home__main__section__article--box">
+                        <img class="home__main__section__article--image" src="/img/<%= image ? image : 'img-pdto-1.jpg' %>" alt="producto1">
+                        <img class="home__main__section__article--sticker" src="/img/<%= section === 'free' ? 'img-gratis.png' : section === 'sale' ? 'img-descuento.png' : 'img-nuevo.png' %>" alt="nuevo">
+                        <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
+                    </div>
+                    <h4 class="home__main__section__article--title"><%= title %></h4>
+                    <p class="home__main__section__article--description"><%= description %></p>
+                    <a class="home__main__section__article--more" href="/products/detail/<%= id %>">ver más</a>
+                </article>
+            <% }) %>
+         
+           
         </div>
         <section class="carousel_ensaladas">
             <div class="swiper mySwiper2">

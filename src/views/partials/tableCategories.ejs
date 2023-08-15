@@ -1,0 +1,44 @@
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cant. Prod.</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categories.forEach(({id, name, image},index)=> { %>                                                     
+                <tr>
+                    <th scope="row">
+                        <%= index + 1 %>
+                    </th>
+                    <td>
+                        <%= name %>
+                    </td>
+                    <td>
+                        <%= products.filter(product=> product.category ===
+                            name).length %>
+                    </td>
+                    <td>
+                        <img src="/img/categories/<%=image%>" class="img-fluid"
+                            alt="">
+                    </td>
+                    <td>
+                        <div class="d-flex gap-1">
+                            <a class="btn btn-sm btn-success"
+                                href="/categories/edit/<%= id %>"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="btn btn-sm btn-danger"
+                                href="/categories/remove/<%= id %>"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+      
+    </table>
+</div>
