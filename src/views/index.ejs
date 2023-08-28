@@ -3,125 +3,79 @@
 
 <%- include('partials/head') %>
 
-<body class="home">
-  <%- include('partials/header') %>
+    <body class="home">
+        <%- include('partials/header') %>
 
-    <main class="home__main">
-        <div class="home__main__section--banner">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/img/banner/image1.jpg" alt=""></div>
-                    <div class="swiper-slide"><img src="/img/banner/image2.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img src="/img/banner/image3.jpeg" alt=""></div>
-                    <div class="swiper-slide"><img src="/img/banner/image5.webp" alt=""></div>
+            <main class="home__main">
+                <div class="home__main__section--banner">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="/img/banner/image1.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="/img/banner/image2.jpeg" alt=""></div>
+                            <div class="swiper-slide"><img src="/img/banner/image3.jpeg" alt=""></div>
+                            <div class="swiper-slide"><img src="/img/banner/image5.webp" alt=""></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-        <div class="home__main__section--products">
+                <div class="home__main__section--products">
 
-            <% products.forEach(({title, description, id, image,section}) => { %>
-                <article class="home__main__section__article" data-aos="zoom-in-right" data-aos-duration="500">
-                    <div class="home__main__section__article--box">
-                        <img class="home__main__section__article--image" src="/img/<%= image ? image : 'img-pdto-1.jpg' %>" alt="producto1">
-                        <img class="home__main__section__article--sticker" src="/img/<%= section === 'free' ? 'img-gratis.png' : section === 'sale' ? 'img-descuento.png' : 'img-nuevo.png' %>" alt="nuevo">
-                        <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
-                    </div>
-                    <h4 class="home__main__section__article--title"><%= title %></h4>
-                    <p class="home__main__section__article--description"><%= description %></p>
-                    <a class="home__main__section__article--more" href="/products/detail/<%= id %>">ver más</a>
-                </article>
-            <% }) %>
-         
-           
-        </div>
-        <section class="carousel_ensaladas">
-            <div class="swiper mySwiper2">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada1.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada2.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada3.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada4.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada5.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                  <div class="swiper-slide">
-                    <div class="card">
-                        <a href="/detalle-producto"><img class="card-img-top" src="/img/products/ensalada6.webp" alt=""></a>
-                        <div class="card-body">
-                            
-                            <p class="card-title">Ensalada tanto...</p>
-                            
-                        </div>
-                    </div>
-                    
-                
-                </div>
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-        </section>
-        <a class="home__main--whatsapp" href=""><img width="50px" src="/img/whatsapp-icon.png" alt=""></a>
-    </main>
-   
-    <%- include('partials/footer') %>
-    <%- include('partials/scripts') %>
+                    <% products.forEach(({title, description, id, image,section})=> { %>
+                        <article class="home__main__section__article" data-aos="zoom-in-right" data-aos-duration="500">
+                            <div class="home__main__section__article--box">
+                                <img class="home__main__section__article--image"
+                                    src="/img/products/<%= image ? image : 'img-pdto-1.jpg' %>" alt="producto1">
+                                <img class="home__main__section__article--sticker"
+                                    src="/img/<%= section === 'free' ? 'img-gratis.png' : section === 'sale' ? 'img-descuento.png' : 'img-nuevo.png' %>"
+                                    alt="nuevo">
+                                <a class="home__main__section__article--zoom" href="">AMPLIAR FOTO</a>
+                            </div>
+                            <h4 class="home__main__section__article--title">
+                                <%= title %>
+                            </h4>
+                            <p class="home__main__section__article--description">
+                                <%= description %>
+                            </p>
+                            <a class="home__main__section__article--more" href="/products/detail/<%= id %>">ver más</a>
+                        </article>
+                        <% }) %>
 
 
+                </div>
+                <section class="carousel_ensaladas">
+                    <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+
+                            <% productsCarousel.forEach(({id, image}) => { %>
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <a href="/detalle-product/<%= id %>"><img class="card-img-top"
+                                                src="/img/products/<%= image %>" alt=""></a>
+                                        <div class="card-body">
     
-</body>
+                                            <p class="card-title">Ensalada tanto...</p>
+    
+                                        </div>
+                                    </div>
+    
+    
+                                </div>
+                            <% }) %>
+                        
+                          
+                    
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </section>
+                <a class="home__main--whatsapp" href=""><img width="50px" src="/img/whatsapp-icon.png" alt=""></a>
+            </main>
+
+            <%- include('partials/footer') %>
+                <%- include('partials/scripts') %>
+
+
+
+    </body>
 
 </html>
