@@ -97,5 +97,16 @@
       "image": "ensalada6.webp",
       "section": "sale",
       "createAt": "2023-08-14T15:29:21.440Z"
+   },
+   {
+      "id": "14be74f0-003a-4eed-8647-e66f39ac8a17",
+      "title": "",
+      "category": "Pastas\r\n                                                        ",
+      "price": 0,
+      "discount": 0,
+      "description": "",
+      "image": null,
+      "section": "free",
+      "createAt": "2023-08-28T14:48:30.812Z"
    }
 ]
