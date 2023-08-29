@@ -1,4 +1,5 @@
-const {validationResult} = require('express-validator')
+const {unlinkSync, existsSync} = require('fs');
+const {validationResult} = require('express-validator');
 const Product = require('../../data/Product');
 const { readJSON, writeJSON } = require('../../data');
 
@@ -19,6 +20,14 @@ module.exports = (req,res) => {
     }else {
         const categories = readJSON('categories.json');
         const sections = readJSON('sections.json');
+
+        (req.files.image && existsSync(`./public/img/products/${req.files.image[0].filename }`)) && unlinkSync(`./public/img/products/${req.files.image[0].filename }`);
+
+        if(req.files.images) {
+            req.files.images.forEach(file => {
+                existsSync(`./public/img/products/${file.filename}`) && unlinkSync(`./public/img/products/${file.filename}`)
+            })
+        } 
 
           return res.render('productAdd',{
                 categories,

@@ -9,9 +9,9 @@ const Product = function ({title,category,price,discount,description, section, i
     this.discount = +discount;
     this.description = description.trim();
     this.section = section;
+    this.image = image;
+    this.images = images;
     this.createAt = new Date;
-    this.image;
-    this.images;
 }
 
 module.exports = Product

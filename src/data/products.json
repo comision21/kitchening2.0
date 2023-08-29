@@ -33,15 +33,19 @@
    },
    {
       "id": "c162c019-b5ff-4d22-a19b-9d03940dbb58",
-      "title": "Milanesa con puré",
-      "category": "Carnes",
-      "price": 1200,
+      "title": "Ensaladilla rusa",
+      "category": "Pescados y Mariscos\r\n                                            ",
+      "price": 3000,
       "discount": 10,
-      "description": "Milanesa de ternera",
-      "section": "free",
+      "description": "La ensaladilla rusa es uno de los platos más populares de nuestra gastronomía, no hay quien se resista a una tapa de esta ensalada fría. Si aún no la has hecho, hoy te mostramos la receta original paso a paso. Nada más fácil y delicioso.",
+      "section": "sale",
       "createAt": "2023-08-11T14:27:57.641Z",
-      "image": "ensalada3.webp",
-      "images": []
+      "image": "1693322080924_products_.webp",
+      "images": [
+         "1693322080927_products_.webp",
+         "1693322080930_products_.webp",
+         "1693322080936_products_.webp"
+      ]
    },
    {
       "id": "b55917b3-430f-441d-a0f5-01badba27d08",
@@ -114,5 +118,17 @@
       "createAt": "2023-08-14T15:29:21.440Z",
       "image": "ensalada6.webp",
       "images": []
+   },
+   {
+      "id": "a3ce4cde-e977-41f5-a2a7-015664c2cb93",
+      "title": "Helado de Kinder Bueno",
+      "category": "Pastas",
+      "price": 7000,
+      "discount": 0,
+      "description": "Hoy os enseñamos con todo detalle a preparar un helado Kinder Bueno, un capricho para los más golosos con tan solo 3 ingredientes. Además es muy fácil de preparar y se puede hacer con y sin heladera. ¡Vamos con la receta!",
+      "section": "new",
+      "image": "1693320628427_products_.webp",
+      "images": [],
+      "createAt": "2023-08-29T14:50:28.440Z"
    }
 ]

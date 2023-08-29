@@ -56,14 +56,18 @@
                   </div>
                   <div class="col-12 col-md-4 mb-3">
                     <label for="section" class="form-label">Sección</label>
-                    <select class="form-select" aria-label="Default select example" name="section" id="section">
+                    <select class="form-select <%= locals.errors && (errors.section && 'is-invalid')%>" name="section" id="section" >
                       <option value="" selected hidden>Seleccione...</option>
                       <% sections.forEach(section=> { %>
-                        <option value="<%= section %>">
+                        <option value="<%= section %>" <%=locals.old && (locals.old.section===section 
+                          && 'selected') %>>
                           <%= section==='free' ? 'Gratis' : section==='sale' ? 'Oferta' : 'Nuevo' %>
                         </option>
                         <% }) %>
                     </select>
+                    <small class="text-danger ms-2">
+                      <%= locals.errors && (errors.section && errors.section.msg) %>
+                    </small>
                   </div>
                   <div class="col-12 mb-3">
                     <label for="description" class="form-label">Descripción</label>
@@ -76,7 +80,10 @@
 
                   </div>
                   <div class="col-12 d-flex justify-content-end gap-2 mb-3">
-                    <label for="image" class="btn btn-secondary">Imagen principal</label>
+                    <small class="text-danger ms-2">
+                      <%= locals.errors && (errors.image && errors.image.msg) %>
+                    </small>
+                    <label for="image" class="btn <%= (locals.errors && errors.image) ? 'btn-danger' : 'btn-secondary' %>">Imagen principal</label>
                     <input type="file" name="image" id="image" hidden />
                     <label for="images" class="btn btn-secondary">Imágenes</label>
                     <input type="file" multiple name="images" id="images" hidden />
