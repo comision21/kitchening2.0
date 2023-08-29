@@ -42,7 +42,7 @@
 
                             <div class="modal fade" id="detailProduct<%=id%>" tabindex="-1"
                                 aria-labelledby="detailProduct<%=id%>Label" aria-hidden="true">
-                                <div class="modal-dialog  modal-dialog-centered">
+                                <div class="modal-dialog modal-lg  modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="detailProduct<%=id%>Label">
@@ -52,11 +52,11 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="card mb-3" style="max-width: 540px;">
+                                            <div class="card mb-3">
                                                 <div class="row g-0">
                                                     <div class="col-md-6">
-                                                        <img src="/img/<%= image || 'img-pdto-1.jpg'%>"
-                                                            class="img-fluid rounded-start" alt="...">
+                                                        <img src="/img/products/<%= image || 'img-pdto-1.jpg'%>"
+                                                            class="img-fluid" alt="...">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="card-body">

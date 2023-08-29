@@ -6,8 +6,13 @@ module.exports = (req,res) => {
 
     const errors = validationResult(req);
     if(errors.isEmpty()){
-        const products = readJSON('products.json')
-        const newProduct = new Product(req.body);
+        const products = readJSON('products.json');
+        const data = {
+            ...req.body,
+            image : req.files.image ? req.files.image[0].filename : null,
+            images : req.files.images ? req.files.images.map(image => image.filename) : []
+        }
+        const newProduct = new Product(data);
         products.push(newProduct);
         writeJSON(products, 'products.json')
         return res.redirect('/admin')

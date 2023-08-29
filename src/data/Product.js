@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
-const Product = function ({title,category,price,discount,description, section, image}) {
+const Product = function ({title,category,price,discount,description, section, image, images}) {
 
     this.id = uuidv4();
     this.title = title.trim();
@@ -8,9 +8,10 @@ const Product = function ({title,category,price,discount,description, section, i
     this.price = +price;
     this.discount = +discount;
     this.description = description.trim();
-    this.image = null;
     this.section = section;
     this.createAt = new Date;
+    this.image;
+    this.images;
 }
 
 module.exports = Product

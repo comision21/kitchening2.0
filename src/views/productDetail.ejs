@@ -13,14 +13,13 @@
                     <div class="row g-0">
                         <div class="col-12 col-md-5">
                             <div class="d-flex flex-column gap-1">
-                                <img id="main-image" src="/img/img-pdto-1.jpg" class="img-fluid rounded-top animate__animated animate__fadeInDown" alt="...">
+                                <img id="main-image" src="/img/products/<%= image %>" class="img-fluid  animate__animated animate__flipInX" alt="...">
                                 <div class="d-flex justify-content-between">
-                                    <img src="/img/img-pdto-1.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-1s"
-                                        onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-1.jpg')">
-                                    <img src="/img/img-pdto-2.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-2s"
-                                        onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-2.jpg')">
-                                    <img src="/img/img-pdto-3.jpg" width="32%" alt="" class="animate__animated animate__fadeInUp animate__delay-3s"
-                                        onclick="document.getElementById('main-image').setAttribute('src','/img/img-pdto-3.jpg')">
+                                    <% images.forEach((image,index) => { %>
+                                        <img src="/img/products/<%= image %>" width="32%" alt="" class="animate__animated animate__fadeIn animate__delay-<%= index + 1 %>s"
+                                        onclick="document.getElementById('main-image').setAttribute('src','/img/products/<%=image%>')">
+                                    <% }) %>
+                                  
                                 </div>
                             </div>
 
