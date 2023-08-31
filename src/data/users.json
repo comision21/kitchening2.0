@@ -1,0 +1,20 @@
+[
+   {
+      "id": "74ccb725-f380-43f6-b33f-28746dc9026a",
+      "name": "Eric",
+      "surname": "Mena",
+      "email": "menaericdaniel@gmail.com",
+      "password": "$2a$10$khdNA1e5pfBwVikAUZE1.OwMw8gS27wnUDfMBA6OqO5IVv2jrwXMW",
+      "role" : "admin",
+      "createAt": "2023-08-31T14:55:30.893Z"
+   },
+   {
+      "id": "408157d6-127a-40f8-b8aa-bf09596a17c2",
+      "name": "Andres",
+      "surname": "Olivera",
+      "email": "andres@gmail.com",
+      "password": "$2a$10$sItiyjidJbJbgLIDwG7tKe2txj0sTIcKbZcehZoYKvKTQGUEvCx5C",
+      "role" : "user",
+      "createAt": "2023-08-31T15:22:58.153Z"
+   }
+]
