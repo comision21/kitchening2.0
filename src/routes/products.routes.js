@@ -10,13 +10,14 @@ const {
 const productAddValidator = require("../validations/productAddValidator");
 const upload = require("../middlewares/upload");
 const productsEditValidator = require("../validations/productsEditValidator");
+const adminCheck = require("../middlewares/adminCheck");
 const router = express.Router();
 
 /* /products */
 
 router
   .get("/detail/:id", detail)
-  .get("/add", add)
+  .get("/add",adminCheck, add)
   .post(
     "/add",
     upload.fields([
@@ -30,7 +31,7 @@ router
     productAddValidator,
     create
   )
-  .get("/edit/:id", edit)
+  .get("/edit/:id",adminCheck, edit)
   .put(
     "/update/:id",
     upload.fields([

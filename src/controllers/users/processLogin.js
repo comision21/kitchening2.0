@@ -14,8 +14,12 @@ module.exports = (req,res) => {
             name,
             role
         }
+
+        req.body.remember !== undefined && res.cookie('kitcheningUser4EVER',req.session.userLogin,{
+            maxAge : 1000 * 60 * 5
+        })
         
-        console.log(req.session.userLogin);
+        //console.log(req.session.userLogin);
         
         return res.redirect('/')
     }else {

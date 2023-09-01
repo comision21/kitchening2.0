@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head') %>
+
+
+<body class="detalle">
+    <%- include('partials/header') %>
+
+    <main class="detalle__main">
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
+                <div class="card mb-3 shadow-lg">
+                  <div class="card-header">
+                    Perfil usuario
+                  </div>
+                  <div class="card-body">
+                    <form action="/users/update?_method=PUT" method="POST" class="row">
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="name" placeholder="Tu nombre" name="name" value="<%= name %>">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="surname" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Tu apellido" name="surname" value="<%= surname %>">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="birthday" class="form-label">Cumpleaños</label>
+                            <input type="date" class="form-control" id="birthday" name="birthday" value="<%= birthday %>">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="address" class="form-label">Dirección</label>
+                            <input type="text" class="form-control" id="address" placeholder="Domicilio" name="address" value="<%= address %>">
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="province" class="form-label">Provincia</label>
+                            <select type="text" class="form-select" id="province" name="province">
+                                <option <%= province === "" && 'selected' %> value="" hidden>Seleccione...</option>
+                                <option <%= province === "BA" && 'selected' %> value="BA">Buenos Aires</option>
+                                <option <%= province === "NQN" && 'selected' %> value="NQN">Neuquén</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                            <label for="city" class="form-label">Ciudad</label>
+                            <select type="text" class="form-select" id="city" name="city">
+                                <option <%= city === "" && 'selected' %> value="" hidden>Seleccione...</option>
+                                <option <%= city === "BA" && 'selected' %> value="BA">Buenos Aires</option>
+                                <option <%= city === "NQN" && 'selected' %> value="NQN">Neuquén</option>
+                            </select>
+                        </div>
+                      
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-dark">Guardar cambios</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+    <%- include('partials/scripts') %>
+
+</body>
+
+</html>

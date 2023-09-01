@@ -8,8 +8,10 @@
             <li><a href="/">home</a></li>
             <li><a href="/quienes">quienes</a></li>
             <li><a href="/servicios">servicios</a></li>
-            <li><a href="/admin">ADMIN</a></li>
             <% if (locals.userLogin) { %>
+                <% if (userLogin.role === "admin") { %>
+                    <li><a href="/admin">ADMIN</a></li>
+                <% } %>
                 <li><a href="/users/profile">Hola <%= userLogin.name %>!</a></li>
                 <li><a href="/users/logout">salir</a></li>
             <% }else{ %>

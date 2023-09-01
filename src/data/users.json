@@ -5,7 +5,11 @@
       "surname": "Mena",
       "email": "menaericdaniel@gmail.com",
       "password": "$2a$10$khdNA1e5pfBwVikAUZE1.OwMw8gS27wnUDfMBA6OqO5IVv2jrwXMW",
-      "role" : "admin",
+      "role": "admin",
+      "birthday": null,
+      "address" : null,
+      "province" : null,
+      "city" : null,
       "createAt": "2023-08-31T14:55:30.893Z"
    },
    {
@@ -14,7 +18,24 @@
       "surname": "Olivera",
       "email": "andres@gmail.com",
       "password": "$2a$10$sItiyjidJbJbgLIDwG7tKe2txj0sTIcKbZcehZoYKvKTQGUEvCx5C",
-      "role" : "user",
+      "role": "user",
+      "birthday": null,
+      "address" : null,
+      "province" : null,
+      "city" : null,
       "createAt": "2023-08-31T15:22:58.153Z"
+   },
+   {
+      "id": "ae7748a3-8978-433a-b1cd-8536b56e048c",
+      "name": "Aldo",
+      "birthday": null,
+      "address" : null,
+      "province" : null,
+      "city" : null,
+      "surname": "Chalup",
+      "email": "aldo@gmail.com",
+      "password": "$2a$10$j8LZ0d9a6O5bn5MIP5Oy9.lTlT1lc0j59QDbdZ.Rhn2s3LWVKsre6",
+      "role": "user",
+      "createAt": "2023-09-01T14:41:01.952Z"
    }
 ]
