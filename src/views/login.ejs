@@ -17,11 +17,17 @@
                     <form action="" method="POST" class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Tu email" name="email">
+                            <input type="email" class="form-control <%= locals.errors && ((errors.email || errors.password) && 'is-invalid') %>" id="email" placeholder="Tu email" name="email">
+                            <small class="text-danger ms-2">
+                              <%= locals.errors && (errors.email && errors.email.msg) %>
+                            </small>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="password" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="password" placeholder="Tu contraseña" name="password">
+                            <input type="password" class="form-control <%= locals.errors && (errors.password && 'is-invalid') %>" id="password" placeholder="Tu contraseña" name="password">
+                            <small class="text-danger ms-2">
+                              <%= locals.errors && (errors.password && errors.password.msg) %>
+                            </small>
                         </div>
                         <div class="d-flex justify-content-around">
                             <div class="form-check">
