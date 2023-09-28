@@ -2,7 +2,7 @@
    {
       "id": "ab1667a5-2f46-4194-9bbd-f22f6adfe5be",
       "title": "Tallarines a la boloñesa",
-      "category": "Pastas\r\n                                                        ",
+      "category": "Pastas",
       "price": 1000,
       "discount": 30,
       "description": "Una de las salsas que mejor acompaña a unos tallarines es, sin duda, una salsa o ragú a la boloñesa. Una carne picada y bien guisadita con su tomate que, acompañando a un plato de pasta, forma un plato completo. Una receta fácil y muy recurrida.",
@@ -18,7 +18,7 @@
    {
       "id": "ea373486-17d4-4976-8ddb-fdedd23ff25d",
       "title": "Paella valenciana tradicional",
-      "category": "Carnes\r\n                                                        ",
+      "category": "Carnes",
       "price": 200,
       "discount": 10,
       "description": "La auténtica y tradicional paella valenciana: te explicamos cómo hacerla paso a paso, con todo detalle, de manera sencilla y con todos los trucos y aspectos clave para conseguir la paella perfecta.",
@@ -34,7 +34,7 @@
    {
       "id": "c162c019-b5ff-4d22-a19b-9d03940dbb58",
       "title": "Ensaladilla rusa",
-      "category": "Pescados y Mariscos\r\n                                            ",
+      "category": "Pescados y Mariscos",
       "price": 3000,
       "discount": 10,
       "description": "La ensaladilla rusa es uno de los platos más populares de nuestra gastronomía, no hay quien se resista a una tapa de esta ensalada fría. Si aún no la has hecho, hoy te mostramos la receta original paso a paso. Nada más fácil y delicioso.",
