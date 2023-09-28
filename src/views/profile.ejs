@@ -29,22 +29,18 @@
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="address" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="address" placeholder="Domicilio" name="address" value="<%= address %>">
+                            <input type="text" class="form-control" id="address" placeholder="Domicilio" name="address" value="">
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="province" class="form-label">Provincia</label>
                             <select type="text" class="form-select" id="province" name="province">
-                                <option <%= province === "" && 'selected' %> value="" hidden>Seleccione...</option>
-                                <option <%= province === "BA" && 'selected' %> value="BA">Buenos Aires</option>
-                                <option <%= province === "NQN" && 'selected' %> value="NQN">Neuquén</option>
+                                <option value="" hidden>Seleccione...</option>
                             </select>
                         </div>
                         <div class="col-12 col-md-6 mb-3">
                             <label for="city" class="form-label">Ciudad</label>
                             <select type="text" class="form-select" id="city" name="city">
-                                <option <%= city === "" && 'selected' %> value="" hidden>Seleccione...</option>
-                                <option <%= city === "BA" && 'selected' %> value="BA">Buenos Aires</option>
-                                <option <%= city === "NQN" && 'selected' %> value="NQN">Neuquén</option>
+                                <option value="" hidden>Seleccione...</option>
                             </select>
                         </div>
                       
