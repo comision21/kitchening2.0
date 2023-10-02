@@ -23,6 +23,10 @@ module.exports = (req,res) => {
                 console.log(response);
                 req.session.userLogin.name = name;
                 res.locals.userLogin.name = name;
+
+                if(req.cookies.kitcheningUser4EVER){
+                    res.cookie("kitcheningUser4EVER", req.session.userLogin);
+                }
                 return res.redirect('/')
             })
     }else {

@@ -14,7 +14,7 @@ router
   .get('/login',notUserCheck, login)
   .post('/login',loginValidator, processLogin)
   .get('/profile',userCheck, profile)
-  .put('/update', profileValidator, update)
+  .put('/update', profileValidator,userCheck, update)
   .get('/logout',logout)
 
 module.exports = router;
