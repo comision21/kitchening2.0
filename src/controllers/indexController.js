@@ -1,23 +1,37 @@
-const { readJSON } = require("../data")
+const db = require('../database/models');
 
 module.exports = {
     index : (req,res) => {   
-        const products = readJSON('products.json');
-        const productsCarousel = products.filter(product => product.category === "Carnes")
+        
+        db.Product.findAll()
+            .then(products => {
+                return res.render('index', {
+                    products,
+                    productsCarousel : []
+        
+                })
+            })
+            .catch(error => console.log(error))
 
-        return res.render('index', {
-            products,
-            productsCarousel
-
-        })
+        
     },
     admin : (req,res)  => {
 
-        const products = readJSON('products.json');
-        const categories = readJSON('categories.json');
-        return res.render('admin', {
-            products,
-            categories,
-        })
+        const products = db.Product.findAll();
+        const categories = db.Category.findAll();
+        const sections = db.Section.findAll();
+        const users = db.User.findAll();
+
+        Promise.all([products,categories,sections,users])
+            .then(([products,categories,sections,users]) => {
+                return res.render('admin', {
+                    products,
+                    categories,
+                    sections,
+                    users
+                })
+            })
+            .catch(error => console.log(error))
+       
     }
 }
