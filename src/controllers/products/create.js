@@ -7,6 +7,7 @@ module.exports = (req,res) => {
 
     const errors = validationResult(req);
     if(errors.isEmpty()){
+        
         const {title,price, discount, description, categoryId, sectionId} = req.body;
         db.Product.create({
             title : title.trim(),
@@ -19,7 +20,7 @@ module.exports = (req,res) => {
             .then(product => {
                 if(req.files.image){
                     db.Image.create({
-                        filename :  req.files.image[0].filename,
+                        file :  req.files.image[0].filename,
                         main : true,
                         productId : product.id
                     })
@@ -27,7 +28,7 @@ module.exports = (req,res) => {
                             if(req.files.images){
                                const images = req.files.images.map(({filename}) => {
                                 return {
-                                    filename,
+                                    file: filename,
                                     main : false,
                                     productId : product.id
                                 }
