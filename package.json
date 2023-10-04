@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./src/bin/www",
-    "dev" : "nodemon ./src/bin/www",
-    "db:create" : "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
-    "db:reset" : "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
+    "dev": "nodemon ./src/bin/www",
+    "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
+    "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -23,6 +23,6 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.1"
   }
 }
