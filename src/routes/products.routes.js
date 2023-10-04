@@ -17,7 +17,7 @@ const router = express.Router();
 
 router
   .get("/detail/:id", detail)
-  .get("/add",adminCheck, add)
+  .get("/add", add)
   .post(
     "/add",
     upload.fields([
@@ -31,7 +31,7 @@ router
     productAddValidator,
     create
   )
-  .get("/edit/:id",adminCheck, edit)
+  .get("/edit/:id", edit)
   .put(
     "/update/:id",
     upload.fields([

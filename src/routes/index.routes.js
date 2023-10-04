@@ -5,6 +5,6 @@ const router = express.Router();
 
 /* / */
 router.get('/', index);
-router.get('/admin', adminCheck, admin);
+router.get('/admin', admin);
 
 module.exports = router;
