@@ -2,10 +2,10 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.renameColumn('products', 'deleteAt', 'deletedAt');
+    return queryInterface.renameColumn('Products', 'deleteAt', 'deletedAt');
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.renameColumn('products', 'deletedAt', 'deleteAt');
+    return queryInterface.renameColumn('Products', 'deletedAt', 'deleteAt');
   },
 };
