@@ -15,7 +15,6 @@ module.exports = (req, res) => {
       roleId: 2,
     })
       .then((user) => {
-        console.log(user);
         db.Address.create({
           userId: user.id,
         }).then(() => {
