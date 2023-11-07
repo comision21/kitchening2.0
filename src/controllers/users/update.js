@@ -6,7 +6,7 @@ module.exports = (req,res) => {
     const errors = validationResult(req)
 
     if(errors.isEmpty()){
-        const {name, surname, birthday} = req.body;
+        const {name, surname, birthday, address, city, province} = req.body;
         db.User.update(
             {
                 name : name.trim(),
@@ -19,16 +19,31 @@ module.exports = (req,res) => {
                 }
             }
         )
-            .then(response => {
-                console.log(response);
+            .then( async () => {
                 req.session.userLogin.name = name;
                 res.locals.userLogin.name = name;
 
                 if(req.cookies.kitcheningUser4EVER){
                     res.cookie("kitcheningUser4EVER", req.session.userLogin);
                 }
+
+                await db.Address.update(
+                    {
+                        address: address.trim(),
+                        city,
+                        province,
+                    },
+                    {
+                        where : {
+                            userId : req.session.userLogin.id
+                        }
+                    }
+                )
+
+
                 return res.redirect('/')
             })
+            .catch(error => console.log(error))
     }else {
         db.User.findByPk(req.session.userLogin.id)
         .then(user => {
