@@ -39,7 +39,7 @@ module.exports = [
   check("password").isLength({
     min: 6,
     max: 12,
-  }),
+  }).withMessage('La contraseña es requerida'),
   body('password2')
     .custom((value,{req}) => {
         if(value !== req.body.password){
