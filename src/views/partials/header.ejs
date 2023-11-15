@@ -1,26 +1,34 @@
 <header class="home__header">
-    <div class="home__header--box-logo rotate-vert-center">
-        <img class="home__header--logo " src="/img/logo.jpg" alt="logo_kitchening">
+  <nav class="topnav p-3" id="myTopnav">
+    <div class="d-flex flex-column align-items-center flex-md-row">
+      <a href="/" class="active"><img class="home__header--logo " src="/img/logo.jpg" alt="logo_kitchening"></a>
+      <a href="#news">Nosotros</a>
+      <a href="#contact">Contacto</a>
+     
+      <div class="d-flex flex-column align-items-center flex-md-row justify-content-between w-100 px-2 px-md-2 mt-3 mt-md-0">
+        <form action="" id="form-search" class="mb-3 mb-md-0 d-flex gap-1">
+          <input placeholder="Encontrá lo que buscás..."  class="form-control" type="text">
+          <button class="border-0 bg-transparent text-white"><i class="fa-solid fa-search fa-xl"></i></button>
+        </form>
+        <div class="d-flex justify-content-center">
+          <% if (locals.userLogin) { %>
+            <% if (userLogin.role === 1) { %>
+              <li><a href="/admin"><i class="fa-solid fa-screwdriver-wrench fa-xl"></i></a></li>
+              <% } %>
+              <a href="#" id="btn-cart" data-bs-toggle="modal" data-bs-target="#cart"><i class="fa-solid fa-cart-shopping fa-xl"></i></a>
+              <a href="/users/profile"><i class="fa-solid fa-user fa-xl"></i></a>
+              <a href="/users/logout"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+          <% }else{ %>
+            <a href="/users/register"><i class="fa-solid fa-user-plus fa-xl"></i></a>
+          <a href="/users/login"><i class="fa-solid fa-right-to-bracket fa-xl"></i></a>
+          
+          <% } %>
+        </div>        
     </div>
-    <a href="" class="home__header--bars"><i class="fa fa-bars fa-lg"></i></a>
-    <nav class="home__header__nav--menu">
-        <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/quienes">quienes</a></li>
-            <% if (locals.userLogin) { %>
-                <% if (userLogin.role === 1) { %>
-                    <li><a href="/admin">ADMIN</a></li>
-                <% } %>
-                <li><a href="#" id="btn-cart" data-bs-toggle="modal" data-bs-target="#cart">carrito</a></li>
-                <li><a href="/users/profile">Hola <%= userLogin.name %>!</a></li>
-                <li><a href="/users/logout">salir</a></li>
-            <% }else{ %>
-            <li><a href="/servicios">servicios</a></li>
-            <li><a href="/users/register">registro</a></li>
-            <li><a href="/users/login">ingresar</a></li>
-            <% } %>
-        </ul>
-    </nav>
+    </div>
+    
+    
+  </nav>
 </header>
  
   <!-- Modal -->
@@ -38,10 +46,20 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar comprando</button>
-          <button type="button" class="btn btn-danger">Vaciar carrito</button>
+          <button type="button" id="btn-clearCart" onclick="clearCart()" class="btn btn-danger">Vaciar carrito</button>
           <button type="button" class="btn btn-success">Finalizar compra</button>
         </div>
       </div>
     </div>
   </div>
-  
+  <script>
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+} 
+  </script>

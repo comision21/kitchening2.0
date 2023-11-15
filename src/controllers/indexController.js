@@ -3,13 +3,18 @@ const db = require('../database/models');
 module.exports = {
     index : (req,res) => {   
         
-        db.Product.findAll({
+        const products = db.Product.findAll({
             include : ['images']
         })
-            .then(products => {
+
+        const categories = db.Category.findAll()
+
+        Promise.all([products, categories])
+            .then(([products, categories]) => {
                 
                 return res.render('index', {
                     products,
+                    categories,
                     productsCarousel : []
         
                 })
