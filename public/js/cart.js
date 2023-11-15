@@ -1,14 +1,32 @@
 const $ = (id) => document.getElementById(id);
 
-const showProductInCart = (products) => {
+const showMessageInfo = (msg) => {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "info",
+    title: msg
+  });
+}
+
+const showProductInCart = (products, total) => {
   if($("cart-table")){
     $("cart-table").innerHTML = null;
-    products.forEach(({ id, image, title, price, quantity }) => {
+    products.forEach(({ id, image, title, price, quantity, discount }) => {
       $("cart-table").innerHTML += `
     <tr>
         <th scope="row"><img src="/img/products/${image}" alt="" width=100/></th>
         <td>${title}</td>
-        <td>${price * quantity}</td>
+        <td>${(price - price * discount /100) * quantity}</td>
         <td>
             <div class="d-flex gap-2">
                 <button class="btn btn-sm btn-danger" onclick="removeItemToCart(${id})"><i class="fa-solid fa-minus"></i></button>
@@ -22,6 +40,7 @@ const showProductInCart = (products) => {
     </tr>
     `;
     });
+    $('show-total').innerHTML = total;
   }
  
 };
@@ -38,11 +57,15 @@ const addItemToCart = async (quantity, product) => {
         "Content-Type": "application/json",
       },
     });
-    const result = await response.json();
-    if (!result.ok) {
-      throw new Error(result.msg);
+    const {ok, data : {products, total},msg} = await response.json();
+    if (!ok) {
+      throw new Error(msg);
     } else {
-      showProductInCart(result.data.products)
+      sessionStorage.setItem('cart-count', products.length)
+      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+      $('show-count').hidden = false
+      showProductInCart(products, total);
+      showMessageInfo(msg)
     }
   } catch (error) {
     Swal.fire({
@@ -61,12 +84,16 @@ const removeItemToCart = async (id) => {
       method : 'DELETE'
     });
 
-    const result = await response.json();
+    const {ok, data : {products, total},msg} = await response.json();
 
-    if (!result.ok) {
-      throw new Error(result.msg);
+    if (!ok) {
+      throw new Error(msg);
     } else {
-      showProductInCart(result.data.products)
+      sessionStorage.setItem('cart-count', products.length)
+      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+      $('show-count').hidden = false
+      showProductInCart(products, total)
+      showMessageInfo(msg)
     }
     
   } catch (error) {
@@ -85,12 +112,24 @@ const deleteItemToCart = async (id) => {
       method : 'DELETE'
     });
     
-    const result = await response.json();
+    const {ok, data : {products, total},msg} = await response.json();
 
-    if (!result.ok) {
-      throw new Error(result.msg);
+    if (!ok) {
+      throw new Error(msg);
     } else {
-      showProductInCart(result.data.products)
+      if(products.length){
+        sessionStorage.setItem('cart-count', products.length)
+        $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+        showProductInCart(products,total)
+        showMessageInfo(msg)
+      }else {
+        sessionStorage.setItem('cart-count', products.length)
+        $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+        $('show-count').hidden = true
+        $("cart-body").innerHTML =
+        '<div class="alert alert-warning" role="alert">No hay productos agregados al carrito</div>';
+      $("btn-clearCart").classList.add('disabled')
+      }
     }
     
   } catch (error) {
@@ -110,14 +149,18 @@ const clearCart = async () => {
       method : 'DELETE'
     });
     
-    const result = await response.json();
+    const {ok, data : {products, total},msg} = await response.json();
 
-    if (!result.ok) {
-      throw new Error(result.msg);
+    if (!ok) {
+      throw new Error(msg);
     } else {
       $("cart-body").innerHTML =
       '<div class="alert alert-warning" role="alert">No hay productos agregados al carrito</div>';
+      sessionStorage.setItem('cart-count', products.length)
+      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+      $('show-count').hidden = true
     $("btn-clearCart").classList.add('disabled')
+    showMessageInfo(msg)
     }
     
   } catch (error) {
@@ -132,14 +175,23 @@ const clearCart = async () => {
 
 
 window.onload = function () {
+
+  if(!sessionStorage.getItem('cart-count')) {
+    sessionStorage.setItem('cart-count',0)
+  } 
+
+  $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+  $('show-count').hidden =  sessionStorage.getItem('cart-count') > 0 ? false : true; 
+
+
   $("btn-cart") &&
     $("btn-cart").addEventListener("click", async function (e) {
       try {
         const response = await fetch("/api/cart");
-        const { ok, data } = await response.json();
+        const { ok, data: {products, total} } = await response.json();
 
         if (ok) {
-          if (data.products.length) {
+          if (products.length) {
             $("cart-body").innerHTML = `
             <table class="table">
                 <thead>
@@ -156,11 +208,11 @@ window.onload = function () {
                 </tbody>
                 <caption>
                     <div class="d-flex justify-content-end">
-                        <h5>Total: ${data.total}</h5> 
+                        <h5>Total: $<span id="show-total">${total}</span></h5> 
                     </div>
                  </caption>
             </table>`;
-            showProductInCart(data.products)
+            showProductInCart(products, total)
             $("btn-clearCart").classList.remove('disabled')
           } else {
             $("cart-body").innerHTML =

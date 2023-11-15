@@ -2,7 +2,7 @@ const db = require("../../database/models");
 
 const calculateTotal = (req) => {
   req.session.cart.total = req.session.cart.products
-  .map((product) => product.price * product.quantity)
+  .map(({price, discount, quantity}) => (price - price * discount / 100) * quantity)
   .reduce((a, b) => a + b, 0);
 }
 
@@ -65,6 +65,7 @@ const addItemToCart = async (req, res) => {
     return res.status(200).json({
       ok: true,
       data: req.session.cart,
+      msg : 'Producto agregado exitosamente'
     });
   } catch (error) {
     console.log(error);
@@ -97,6 +98,7 @@ const removeItemToCart = async (req, res) => {
     return res.status(200).json({
       ok: true,
       data: req.session.cart,
+      msg : 'Producto eliminado exitosamente'
     });
   } catch (error) {
     console.log(error);
@@ -125,6 +127,7 @@ const deleteItemToCart = async (req,res) => {
   return res.status(200).json({
     ok: true,
     data: req.session.cart,
+    msg : 'Producto eliminado exitosamente'
   });
     
   } catch (error) {
@@ -152,6 +155,7 @@ const clearCart = async (req,res) => {
     return res.status(200).json({
       ok: true,
       data: req.session.cart,
+      msg : 'Carrito vaciado con éxito'
     });
     
   } catch (error) {

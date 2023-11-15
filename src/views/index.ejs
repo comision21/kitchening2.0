@@ -54,7 +54,7 @@
                                     <p class="card-text  fs-2">$<%= price - (price * discount / 100) %></p>
 
                                   <% } %>
-                                    <button class="btn btn-sm btn-outline-dark">Agregar al carrito</button>
+                                    <button onclick="event.preventDefault(); addItemToCart(1,'<%=id%>')" class="btn btn-sm btn-outline-dark">Agregar al carrito</button>
                                 </div>
                            
                             </div>
