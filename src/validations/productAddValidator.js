@@ -1,4 +1,5 @@
 const { check, body } = require("express-validator");
+const {unlinkSync, existsSync} = require('fs');
 
 module.exports = [
   check("title")
@@ -33,5 +34,15 @@ module.exports = [
         return false
       }
       return true
-    }).withMessage('Debes subir una imagen principal')
+    }).withMessage('Debes subir una imagen principal'),
+    body('images')
+    .custom((value,{req}) => {
+      if(req.files.images.length > 3){
+        req.files.images.forEach(file => {
+          existsSync(`./public/img/products/${file.filename}`) && unlinkSync(`./public/img/products/${file.filename}`)
+        });
+        return false
+      }
+      return true
+    }).withMessage('Solo se permiten 3 imágenes')
 ];
