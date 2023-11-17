@@ -16,6 +16,12 @@ const showMessageInfo = (msg) => {
     icon: "info",
     title: msg
   });
+};
+
+const showCountProductCart = (products, hidden = false) => {
+  sessionStorage.setItem('cart-count', products.map(product => product.quantity).reduce((a,b) => a + b, 0))
+      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+      $('show-count').hidden = hidden
 }
 
 const showProductInCart = (products, total) => {
@@ -29,7 +35,7 @@ const showProductInCart = (products, total) => {
         <td>${(price - price * discount /100) * quantity}</td>
         <td>
             <div class="d-flex gap-2">
-                <button class="btn btn-sm btn-danger" onclick="removeItemToCart(${id})"><i class="fa-solid fa-minus"></i></button>
+                <button class="btn btn-sm btn-danger ${quantity === 1 && 'disabled'}" onclick="removeItemToCart(${id})"><i class="fa-solid fa-minus"></i></button>
                 <input type="text" value=" ${quantity}" style="width:30px"/>
                 <button class="btn btn-sm btn-success" onclick="addItemToCart(1,${id})"><i class="fa-solid fa-plus"></i></button>
             </div>
@@ -57,13 +63,12 @@ const addItemToCart = async (quantity, product) => {
         "Content-Type": "application/json",
       },
     });
-    const {ok, data : {products, total},msg} = await response.json();
+    const {ok, data,msg} = await response.json();
     if (!ok) {
       throw new Error(msg);
     } else {
-      sessionStorage.setItem('cart-count', products.length)
-      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
-      $('show-count').hidden = false
+      const {products, total} = data
+      showCountProductCart(products)
       showProductInCart(products, total);
       showMessageInfo(msg)
     }
@@ -89,9 +94,7 @@ const removeItemToCart = async (id) => {
     if (!ok) {
       throw new Error(msg);
     } else {
-      sessionStorage.setItem('cart-count', products.length)
-      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
-      $('show-count').hidden = false
+      showCountProductCart(products)
       showProductInCart(products, total)
       showMessageInfo(msg)
     }
@@ -123,9 +126,7 @@ const deleteItemToCart = async (id) => {
         showProductInCart(products,total)
         showMessageInfo(msg)
       }else {
-        sessionStorage.setItem('cart-count', products.length)
-        $('show-count').innerHTML = sessionStorage.getItem('cart-count')
-        $('show-count').hidden = true
+        showCountProductCart(products)
         $("cart-body").innerHTML =
         '<div class="alert alert-warning" role="alert">No hay productos agregados al carrito</div>';
       $("btn-clearCart").classList.add('disabled')
@@ -156,9 +157,8 @@ const clearCart = async () => {
     } else {
       $("cart-body").innerHTML =
       '<div class="alert alert-warning" role="alert">No hay productos agregados al carrito</div>';
-      sessionStorage.setItem('cart-count', products.length)
-      $('show-count').innerHTML = sessionStorage.getItem('cart-count')
-      $('show-count').hidden = true
+      showCountProductCart(products, true)
+
     $("btn-clearCart").classList.add('disabled')
     showMessageInfo(msg)
     }
@@ -180,8 +180,11 @@ window.onload = function () {
     sessionStorage.setItem('cart-count',0)
   } 
 
-  $('show-count').innerHTML = sessionStorage.getItem('cart-count')
-  $('show-count').hidden =  sessionStorage.getItem('cart-count') > 0 ? false : true; 
+  if($('show-count')){
+    $('show-count').innerHTML = sessionStorage.getItem('cart-count')
+    $('show-count').hidden =  sessionStorage.getItem('cart-count') > 0 ? false : true; 
+  } 
+  
 
 
   $("btn-cart") &&

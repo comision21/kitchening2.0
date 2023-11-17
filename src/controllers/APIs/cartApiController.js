@@ -9,7 +9,7 @@ const calculateTotal = (req) => {
 const getCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Error al cargar el carrito :(");
+      let error = new Error("Debe loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -29,7 +29,7 @@ const getCart = async (req, res) => {
 const addItemToCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Error al cargar el carrito :(");
+      let error = new Error("Debe loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -71,6 +71,7 @@ const addItemToCart = async (req, res) => {
     console.log(error);
     return res.status(error.status || 500).json({
       ok: false,
+      data: null,
       msg: error.message || "Upss, hubo un error :(",
     });
   }
@@ -79,7 +80,7 @@ const addItemToCart = async (req, res) => {
 const removeItemToCart = async (req, res) => {
   try {
     if (!req.session.cart) {
-      let error = new Error("Error al cargar el carrito :(");
+      let error = new Error("Debe loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -113,7 +114,7 @@ const deleteItemToCart = async (req,res) => {
   try {
 
     if (!req.session.cart) {
-      let error = new Error("Error al cargar el carrito :(");
+      let error = new Error("Debe loguearte para comprar");
       error.status = 404;
       throw error;
     }
@@ -143,7 +144,7 @@ const clearCart = async (req,res) => {
   try {
 
     if (!req.session.cart) {
-      let error = new Error("Error al cargar el carrito :(");
+      let error = new Error("Debe loguearte para comprar");
       error.status = 404;
       throw error;
     };
