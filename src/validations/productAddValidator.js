@@ -29,9 +29,9 @@ module.exports = [
   }).withMessage('Debe tener entre 20 y 500 caracteres'),
   body('image')
     .custom((value,{req}) => {
-      if(req.files.image){
-        return true
+      if(!req.files.image && !req.fileValidatorError.image){
+        return false
       }
-      return false
+      return true
     }).withMessage('Debes subir una imagen principal')
 ];

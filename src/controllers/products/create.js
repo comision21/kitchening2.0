@@ -5,7 +5,27 @@ const db = require('../../database/models');
 
 module.exports = (req,res) => {
 
-    const errors = validationResult(req);
+    let errors = validationResult(req);
+
+    
+    (req.fileValidatorError && req.fileValidatorError.image) && errors.errors.push({
+        type : 'field',
+        value : "",
+        path : 'image',
+        msg: req.fileValidatorError.image,
+        location : "body"
+    });
+
+    (req.fileValidatorError && req.fileValidatorError.images) && errors.errors.push({
+        type : 'field',
+        value : "",
+        path : 'images',
+        msg: req.fileValidatorError.images,
+        location : "body"
+    })
+
+    return res.send(errors.mapped())
+    
     if(errors.isEmpty()){
         
         const {title,price, discount, description, categoryId, sectionId} = req.body;
