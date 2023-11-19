@@ -50,14 +50,38 @@ const addItemToCart = async (req, res) => {
     };
 
     if (req.session.cart.products.map((product) => product.id).includes(id)) {
+      
       req.session.cart.products = req.session.cart.products.map((product) => {
         if (product.id === id) {
           ++product.quantity;
         }
         return product;
       });
+
+      /* base de datos */
+
+      await db.Item.update(
+        {
+
+          quantity : req.session.cart.products.find(product => product.id === +id).quantity
+
+        },
+        {
+          where : {
+            orderId : req.session.cart.orderId,
+            productId : id
+          }
+        }
+      )
+
     } else {
       req.session.cart.products.push(newProduct);
+
+      await db.Item.create({
+        orderId : req.session.cart.orderId,
+        productId : id,
+        quantity : 1
+      })
     }
 
     calculateTotal(req)
@@ -96,6 +120,23 @@ const removeItemToCart = async (req, res) => {
     
     calculateTotal(req)
 
+    /* base de datos */
+
+    await db.Item.update(
+      {
+
+        quantity : req.session.cart.products.find(product => product.id == +id).quantity
+
+      },
+      {
+        where : {
+          orderId : req.session.cart.orderId,
+          productId : id
+        }
+      }
+    )
+
+
     return res.status(200).json({
       ok: true,
       data: req.session.cart,
@@ -125,6 +166,17 @@ const deleteItemToCart = async (req,res) => {
 
     calculateTotal(req)
 
+    /* base de datos */
+
+    await db.Item.destroy(
+      {
+        where : {
+          orderId : req.session.cart.orderId,
+          productId : id
+        }
+      }
+    )
+
   return res.status(200).json({
     ok: true,
     data: req.session.cart,
@@ -151,7 +203,17 @@ const clearCart = async (req,res) => {
 
     req.session.cart.products = [];
 
-    calculateTotal(req)
+    calculateTotal(req);
+
+      /* base de datos */
+
+      await db.Item.destroy(
+        {
+          where : {
+            orderId : req.session.cart.orderId,
+          }
+        }
+      )
 
     return res.status(200).json({
       ok: true,
