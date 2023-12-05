@@ -23,8 +23,6 @@ module.exports = (req,res) => {
         msg: req.fileValidatorError.images,
         location : "body"
     })
-
-    return res.send(errors.mapped())
     
     if(errors.isEmpty()){
         
