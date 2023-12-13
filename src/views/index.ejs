@@ -37,7 +37,7 @@
                             <div class="home__main__section__article--box ">
                                 <div >
                                     <img class="home__main__section__article--image"
-                                    src="/img/products/<%= images.find(image => image.main).file %>">
+                                    src="/img/products/<%= images.length ? images.find(image => image.main).file : null %>">
                                 </div>
                               
                                

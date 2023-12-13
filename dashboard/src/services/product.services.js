@@ -9,3 +9,13 @@ export const totalProductInDB = async () => {
         console.error
     }
 }
+
+export const getAllProducts = async () => {
+    try {
+
+        return await UseFetch('products/count')
+        
+    } catch (error) {
+        console.error
+    }
+}
